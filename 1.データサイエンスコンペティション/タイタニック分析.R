@@ -5,7 +5,7 @@ rm(list=ls())
 #1.train data読み込み
 a=read_csv("ti_train.csv", col_names =T, na = c("")) 
 
-#1-2.family size
+#1-2.family size!
 familysize=a$SibSp+a$Parch+1
 a=cbind(a,familysize)
 
