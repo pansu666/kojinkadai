@@ -1,0 +1,40 @@
+---
+title: "ビジネス統計TA"
+author: "kim pansu"
+date: "2023-01-15"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,fig.align = "center", message=F, warning=F, fig.height = 8, cache=T, dpi = 300)
+```
+
+## 相関係数
+
+相関係数は、2変数の線形関係を表す係数であり、  
+基本的に2変量正規性と等分散性、線形性を満たさなければならない。  
+計算方法は`Cov(X,y)/sd(x)sd(y)`である。  
+相関係数のコードは以下のとおりである。
+
+```{r}
+library(tidyverse)
+setwd("C:/r_analysis/")
+seicho1=read_csv("dat_1-1.csv", col_names =T, na = c(""),locale = locale(encoding = "CP932")) 
+cor(seicho1$A,seicho1$B)
+```
+
+## 相関係数を図表で確認
+
+変数間の散布図は`plot()`で確認できる。
+
+```{r, echo=FALSE}
+plot(seicho1$A,seicho1$B)
+```
+
+## 要約統計量
+
+要約統計量をみたい場合、`summary()`関数を利用する。  
+
+```{r}
+summary(seicho1)
+```
